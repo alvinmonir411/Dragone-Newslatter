@@ -9,7 +9,7 @@ const Home = () => {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Dragon News Home</h1>
+      <h1 className="text-2xl font-bold mb-4 text-center">Dragon News Home</h1>
 
       {allnews.map((item) => (
         <div key={item.id} className="p-4 rounded-lg shadow-md border mb-6">
