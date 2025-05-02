@@ -1,20 +1,32 @@
 import { createBrowserRouter } from "react-router";
-import HomeLayout from "../Components/HomeLayout";
 import CatagoresNews from "./CatagoresNews";
 import Home from "../Components/Home";
+import HomeLayout from "./../Components/HomeLayout";
+import About from "./../Components/About";
+import Career from "./../Components/Career";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    Component: HomeLayout,
+    element: <HomeLayout />,
     children: [
       {
         index: true,
         Component: Home,
+        loader: () => fetch("/news.json"),
       },
       {
-        path: "/category/:id",
-        Component: CatagoresNews,
+        path: "category/:id",
+        element: <CatagoresNews />,
+        loader: () => fetch("/news.json"),
+      },
+      {
+        path: "/About",
+        Component: About,
+      },
+      {
+        path: "/Career",
+        Component: Career,
       },
     ],
   },
